@@ -1,0 +1,9 @@
+get:
+  "method": "get"
+  "url": "${algo_domain}/streaming-service/company-event/select.do"
+  "params":
+    "symbols": ${symbols}
+    "durationDays": ${durationDays}
+  "headers":
+    "accept": "application/json, text/plain, */*"
+

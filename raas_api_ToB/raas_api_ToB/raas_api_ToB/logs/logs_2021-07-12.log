@@ -1,0 +1,15 @@
+2021-07-12-16:40|INFO  |test_users_select.py:42 |-------------开始获取公司事件测试---------
+2021-07-12-16:40|ERROR |base_api.py:142|api模板改变的参数为：{'algo_domain': 'https://raas-sit.aqumon.com/raas-api', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyYWFzX2FsbF9xYTFfYXBwMSIsInVzZXJfY29kZSI6InNpdF9veTEiLCJleHAiOjE2NDYxODk1MDh9.Gmto52Y-AE3NVB2peC2SLRKbmsUXqpCcjpFripGcpQW1nlYestC0pEBeEjsfCkVJxYyhhcF2bQqGLNbayEyhol1NrwcAKHH-shAYkdPeIiTfvv0KD-43tsBuhiBjkzZunIu1QXXzuAONLQr1Yq4Jq4Fr5wL1mDxnMz5QlMJowJKsUNxT9MbNA9Z-U3O6ZDA6prEb8UtxUmHkCNBESiFv40X7BNTRolWWmUfiiw4xOmRXfUt9ykmEoVKy1jyE1LWDe3VlvHZ7kvLw9mr7Wk4K3Y8UOg9kJ8A0LarLgsfi11kNBh_S7mndk5Ra7caMWfklqj-qZKATVw08OC-JofV4Hg'}
+2021-07-12-16:40|ERROR |base_api.py:151|修改后的请求为：{'headers': {'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyYWFzX2FsbF9xYTFfYXBwMSIsInVzZXJfY29kZSI6InNpdF9veTEiLCJleHAiOjE2NDYxODk1MDh9.Gmto52Y-AE3NVB2peC2SLRKbmsUXqpCcjpFripGcpQW1nlYestC0pEBeEjsfCkVJxYyhhcF2bQqGLNbayEyhol1NrwcAKHH-shAYkdPeIiTfvv0KD-43tsBuhiBjkzZunIu1QXXzuAONLQr1Yq4Jq4Fr5wL1mDxnMz5QlMJowJKsUNxT9MbNA9Z-U3O6ZDA6prEb8UtxUmHkCNBESiFv40X7BNTRolWWmUfiiw4xOmRXfUt9ykmEoVKy1jyE1LWDe3VlvHZ7kvLw9mr7Wk4K3Y8UOg9kJ8A0LarLgsfi11kNBh_S7mndk5Ra7caMWfklqj-qZKATVw08OC-JofV4Hg', 'Content-Type': 'application/json; charset=UTF-8', 'Host': 'raas-sit.aqumon.com', 'X-Api-Pid': '101'}, 'method': 'get', 'url': 'https://raas-sit.aqumon.com/raas-api/v1/app/users'}
+2021-07-12-16:40|INFO  |base_api.py:153|响应为：<Response [200]>
+2021-07-12-16:40|INFO  |test_users_select.py:44 |-------------测试结束---------
+2021-07-12-16:40|INFO  |test_users_select.py:42 |-------------开始获取公司事件测试---------
+2021-07-12-16:40|ERROR |base_api.py:142|api模板改变的参数为：{'algo_domain': 'https://raas-sit.aqumon.com/raas-api', 'Authorization': ''}
+2021-07-12-16:40|ERROR |base_api.py:151|修改后的请求为：{'headers': {'Authorization': None, 'Content-Type': 'application/json; charset=UTF-8', 'Host': 'raas-sit.aqumon.com', 'X-Api-Pid': '101'}, 'method': 'get', 'url': 'https://raas-sit.aqumon.com/raas-api/v1/app/users'}
+2021-07-12-16:40|INFO  |base_api.py:153|响应为：<Response [401]>
+2021-07-12-16:40|INFO  |test_users_select.py:44 |-------------测试结束---------
+2021-07-12-16:40|ERROR |base_api.py:142|api模板改变的参数为：{'algo_domain': 'https://raas-sit.aqumon.com/raas-api', 'Authorization': ' '}
+2021-07-12-16:40|ERROR |base_api.py:151|修改后的请求为：{'headers': {'Authorization': None, 'Content-Type': 'application/json; charset=UTF-8', 'Host': 'raas-sit.aqumon.com', 'X-Api-Pid': '101'}, 'method': 'get', 'url': 'https://raas-sit.aqumon.com/raas-api/v1/app/users'}
+2021-07-12-16:40|INFO  |base_api.py:153|响应为：<Response [401]>
+2021-07-12-16:40|INFO  |test_users_select.py:79 |-------------开始获取股票信息（前置获取公司事件）---------
+2021-07-12-16:40|INFO  |test_users_select.py:81 |-------------测试结束---------

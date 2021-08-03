@@ -1,0 +1,8 @@
+# 查看股票公司事件，参数有symbols, durationDays, ecode, message, expect_http_code
+get:
+  ids:
+    - symbols有多个，查询多个股票事件OK
+    - symbols为空，查询失败
+  data:
+    - ["00001.HK,000001.SZ,VTI.US",60, 0, "success", 200]
+    - ["", 60, "", "symbols", 400]

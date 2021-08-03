@@ -1,0 +1,6 @@
+host:
+  java_domain: 'https://test-smarthk.aqumon.com'                       #   'https://test-smarthk.aqumon.com'
+  algo_internal: 'https://algo-internal.aqumon.com'
+  algo_dev: 'https://algo-dev.aqumon.com'
+  algo_public: 'https://algo-public.aqumon.com'
+  algo_users: 'https://raas-dev.aqumon.com/raas-api'

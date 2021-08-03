@@ -1,0 +1,29 @@
+# 个股接口测试框架说明
+## 单接口测试
+### common文件夹
+* 说明：此文件夹主要存放共用方法，例如接口调用方法access_api，yaml文件读取方法access_yaml等
+### module文件夹
+* 说明：此文件下主要存放RAAS系统每个功能模块的接口测试文件，以模块区分/命名测试用例 
+### testcase文件夹
+* 说明：此文件下主要存放编写的测试用例，yaml文件名与模块一一对应进行区分
+### report文件夹
+* 说明：此文件下均为allure生成的报告文件，可不用关注
+### conftest文件
+* 说明：此文件为pytest的全局共用文件，主要定义了全局类的测试夹具
+### pytest.ini文件
+* 说明：配置文件，部署时使用
+### config文件夹
+* 说明：host分不同环境，config可以配置多个host地址
+
+## 多接口测试扩展
+### api python目录
+* 说明：base_api封装基础API类方法，包括requests方法封装、读取和写入yaml方法等公共基础方法，algo_events.py是接口类，定义参数并发送请求
+### common 目录新增日志和获取配置文件脚本
+* 说明：get_log.py 获取日志脚本，config.py获取配置文件脚本
+### logs 目录
+* 说明：运行时保存日志，保留空目录上传
+## 注意：
+* module文件夹下新建的文件命名均需以test_开头或_test结尾
+* module中的function命名均需以test_开头
+* moudle中的class均需以Test开头命名,并且不能有int方法
+ 
