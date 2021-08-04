@@ -71,13 +71,6 @@ class TestPredicting():
                 #     assert False
                 event_keys = ['clientNumber', 'riskType', 'prefRegion', 'prefSector', 'status',
                               'riskAckStatus']
-                for k, v in real_data.items():
-                    if k == "weight":
-                        weight_predicting = sum(real_data.values())
-                        print(weight_predicting)
-                        if weight_predicting == 1.0000:
-                            print("weight正确")
-
                 return real_data
             elif error[0]['code'] == 100002:
                 assert True
@@ -88,17 +81,36 @@ class TestPredicting():
                 print(str(error_code),msg)
                 # print(real_data)
                 assert True
-
             else:
                 assert False
 
         else:
             pass
 
-    # def sum_dict(self,real_data):
-    #     temp = dict()
-    #     for k in self.test_advice_predicting(real_data):
-    #         temp[k] = sum([])
+        # len_weight = len(real_data)
+        # weight_list = []
+        # i = 0
+        # while i < len_weight:
+        #     weight_1 = real_data[i]
+        #     weitht_2 = list(weight_1.values())
+        #     i = i + 1
+        #     weight_list.append(weitht_2)
+        #     print(weight_list)
+        #
+
+    # def weight_predicting(self):
+    #     weight_list = self.test_advice_predicting()
+    #     for k, v in weight_list.items():
+    #         if k == "weight":
+    #             weight_predicting = sum(weight_list.values())
+    #             print(weight_predicting)
+    #             if weight_predicting == 1.0000:
+    #                 print("weight和等于1")
+    #             else:
+    #                 print("weight和不等于1")
+
+
+
 
 
 
