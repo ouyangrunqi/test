@@ -1,0 +1,15 @@
+2021-07-09-16:59|INFO  |test_get_user_info.py:41 |-------------开始获取股票信息测试---------
+2021-07-09-16:59|ERROR |base_api.py:142|api模板改变的参数为：{'algo_domain': 'https://algo-public.aqumon.com', 'symbols': '00001.HK,000001.SZ,VTI.US', 'lang': 'en'}
+2021-07-09-16:59|ERROR |base_api.py:151|修改后的请求为：{'headers': {'accept': 'application/json, text/plain, */*'}, 'method': 'get', 'params': {'lang': 'en', 'symbols': '00001.HK,000001.SZ,VTI.US'}, 'url': 'https://algo-public.aqumon.com/market-data/stock_info'}
+2021-07-09-16:59|INFO  |base_api.py:153|响应为：<Response [200]>
+2021-07-09-16:59|INFO  |test_get_user_info.py:43 |-------------测试结束---------
+2021-07-09-16:59|INFO  |test_get_user_info.py:41 |-------------开始获取股票信息测试---------
+2021-07-09-16:59|ERROR |base_api.py:142|api模板改变的参数为：{'algo_domain': 'https://algo-public.aqumon.com', 'symbols': '', 'lang': 'en'}
+2021-07-09-16:59|ERROR |base_api.py:151|修改后的请求为：{'headers': {'accept': 'application/json, text/plain, */*'}, 'method': 'get', 'params': {'lang': 'en', 'symbols': None}, 'url': 'https://algo-public.aqumon.com/market-data/stock_info'}
+2021-07-09-16:59|INFO  |base_api.py:153|响应为：<Response [400]>
+2021-07-09-16:59|INFO  |test_get_user_info.py:43 |-------------测试结束---------
+2021-07-09-16:59|ERROR |base_api.py:142|api模板改变的参数为：{'algo_domain': 'https://algo-public.aqumon.com', 'symbols': 'VTI.US', 'durationDays': 60}
+2021-07-09-16:59|ERROR |base_api.py:151|修改后的请求为：{'headers': {'accept': 'application/json, text/plain, */*'}, 'method': 'get', 'params': {'durationDays': 60, 'symbols': 'VTI.US'}, 'url': 'https://algo-public.aqumon.com/streaming-service/company-event/select.do'}
+2021-07-09-16:59|INFO  |base_api.py:153|响应为：<Response [200]>
+2021-07-09-16:59|INFO  |test_get_user_info.py:166|-------------开始获取股票信息（前置获取公司事件）---------
+2021-07-09-16:59|INFO  |test_get_user_info.py:168|-------------测试结束---------
