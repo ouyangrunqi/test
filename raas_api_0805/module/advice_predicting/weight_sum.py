@@ -149,14 +149,15 @@ print(x2)
 iii = []
 for i in x2:
     ii = i['weight']
-    print(ii)
     iii.append(ii)
-print(iii)
 weight = sum(iii)
 if weight == 1:
-    print("weight和等于1")
+    print("\n检测点：接口返回weight和等于1 符合预期！")
 else:
-    print("weight和不等于1")
+    # print("weight和与预期不符：",weight,)
+    # print("\n试算各基金weight：", iii)
+    print("\n检测点：与预期不符！weight和为：", weight)
+    print("\n试算返回的各基金weight：", iii)
 
 
 

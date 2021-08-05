@@ -48,7 +48,7 @@ class TestPredicting():
         print('******** http协议状态码判断... ')
         print("res.status_code: {0}".format(res.status_code))
         if res.status_code == expect_http_code:
-            print('检测点：http status_code 符合预期！')
+            print('\n检测点：http status_code 符合预期！')
             assert True
         else:
             print('WARN --> http请求响应status_code={0}'.format(res.status_code))
@@ -60,30 +60,44 @@ class TestPredicting():
             real_data = res_json['data']
             error = res_json['errors']
             if real_data:  # 数据非空
-                # print('检测点：接口返回data非空,符合预期！')
-                print('检测点：接口返回data 符合预期！返回数据为：{0}'.format(real_data))
+                # print('\n检测点：接口返回data非空,符合预期！')
+                print('\n检测点：接口返回data 符合预期！返回数据为：{0}'.format(real_data))
                 # 检测返回的数据类型
                 # if isinstance(real_data, dict):
-                #     print('检测点：接口返回data type符合预期！返回数据为：{0}'.format(type(real_data)))
+                #     print('\n检测点：接口返回data type符合预期！返回数据为：{0}'.format(type(real_data)))
                 # else:
                 #     print('WARN --> data 部分类型与预期不符,预期类型:dict,实际类型:{0}.(real_data={1})'.format(type(real_data),
                 #                                                                               real_data))
                 #     assert False
-                event_keys = ['clientNumber', 'riskType', 'prefRegion', 'prefSector', 'status',
-                              'riskAckStatus']
+                # event_keys = ['clientNumber', 'riskType', 'prefRegion', 'prefSector', 'status',
+                #               'riskAckStatus']
+                orders_data = res_json['data']['orders']
+                # print(orders_data)
+                iii = []
+                for i in orders_data:
+                    ii = i['weight']
+                    # print(ii)
+                    iii.append(ii)
+                weight_total = sum(iii)
+                if weight_total == 1:
+                    print("\n检测点：接口返回weight和等于1 符合预期！")
+                    assert True
+                else:
+                    print("\n检测点：与预期不符！weight和为：",weight_total)
+                    print("\n试算返回的各基金weight：", iii)
+                    assert False
                 return real_data
             elif error[0]['code'] == 100002:
                 assert True
             elif error[0]['code'] == 300008:
                 msg = error[0]['message']
                 error_code = error[0]['code']
-                print("检测点：起投金额检测")
+                print("\n检测点：起投金额检测")
                 print(str(error_code),msg)
                 # print(real_data)
                 assert True
             else:
                 assert False
-
         else:
             pass
 
