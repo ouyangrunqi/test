@@ -1,9 +1,0 @@
-get:
-  "method": "get"
-  "url": "${algo_domain}/market-data/stock_info"
-  "params":
-    "symbols": ${symbols}
-    "lang": ${lang}
-  "headers":
-    "accept": "application/json, text/plain, */*"
-
