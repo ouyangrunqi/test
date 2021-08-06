@@ -101,38 +101,11 @@ class TestPredicting():
         else:
             pass
 
-        # len_weight = len(real_data)
-        # weight_list = []
-        # i = 0
-        # while i < len_weight:
-        #     weight_1 = real_data[i]
-        #     weitht_2 = list(weight_1.values())
-        #     i = i + 1
-        #     weight_list.append(weitht_2)
-        #     print(weight_list)
-        #
-
-    # def weight_predicting(self):
-    #     weight_list = self.test_advice_predicting()
-    #     for k, v in weight_list.items():
-    #         if k == "weight":
-    #             weight_predicting = sum(weight_list.values())
-    #             print(weight_predicting)
-    #             if weight_predicting == 1.0000:
-    #                 print("weight和等于1")
-    #             else:
-    #                 print("weight和不等于1")
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
     # a = TestEvents
     # print('Test data: {0}, Test ids: {1}'.format(a.get_data, a.get_ids))
-    pytest.main(['-v', 'test_advice_predicting.py'])
+    pytest.main(['-v', 'test_advices_post.py'])
     # pytest.main(['-v', '--alluredir', '../report/result', 'test_algo_stock_info.py'])
     # os.system('allure generate ../report/result -o ../report/html --clean')

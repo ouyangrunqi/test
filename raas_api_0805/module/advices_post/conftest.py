@@ -1,13 +1,13 @@
 import pytest
-from api.advice_predicting import Predicting
+from api.advices_post import Advices
 
 # 新建api 类的对象
-events = Predicting()
+events = Advices()
 
 
 # 冒烟测试的前置和后置步骤
 @pytest.fixture(scope="session")
-def get_advice_predicting_setup(env):
+def get_advices_post_setup(env):
     algo_domain = env['host']['algo_users']
-    vti_events = events.get_advice_predicting(algo_domain, ' ')
+    vti_events = events.get_advices_post(algo_domain, ' ')
     return vti_events

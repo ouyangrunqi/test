@@ -1,0 +1,6 @@
+# 查询用户事件，参数有token, status, expect_http_code, amount, investorPayId, target, type
+get:
+  ids:
+    - 申购：10万
+  data:
+    - ["Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyYWFzX2FsbF9xYTFfYXBwMSIsInVzZXJfY29kZSI6ImF1dG8xMDAxIiwiZXhwIjoxNjMzMDE3NjAwfQ.UwJ0_5Mfn87RYWXsybf8z_0FzBolrjReoa2TPzVEWXC_0_4Ft-BEnwSz18LZ9JnCVame6uiLyW7R9o1CH-Y5anPq28zQou7UeMTPHJW4GYoEo_vRQmtjBHI75cuyyWgJIY09H8mSI3R7YeoeP6lEZ9fdhApkMHyGdm18TAc0y2oeov76Tqtr2RSoeKqZTHztHXg04Wn5ziUfu6axIcdHVa4whqviseR4v1PH4Ngz59LEy1mryiV-xpNQphiqaRgEpG5n8aXEmLAvrp_BQB_h4scXWLfMBxUrmIApeTjkBJ7KDK6yOjnh6fyWjzds35V_t7i9p_7XpAjs-XXlWylo6w",200,200,100000,auto1001,2050892,202100]
