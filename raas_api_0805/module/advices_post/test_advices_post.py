@@ -1,12 +1,14 @@
 import os
 import allure
 import pytest
-from api.advices_post import Advices
+from api.advices_post import AdvicesPost
 from common.get_log import log
 from conftest import headers_gl
+import re
 
 
-class TestAdvices():
+
+class TestAdvicesPost():
     """
     用户查询测试类
     1.参数化存放在特定的yml文件中，用三级目录管理用例、参数数据和ids的数据
@@ -15,7 +17,7 @@ class TestAdvices():
     """
 
     # 新建公司事件类实例
-    event = Advices()
+    event = AdvicesPost()
 
     # 获取参数化的数据
     para_data = event.load_yaml('testcase/advices_post/para_advices_post.yml')
@@ -39,11 +41,8 @@ class TestAdvices():
         algo_domain = env['host']['algo_users']
         # Authorization = headers_gl['get']['headers']['Authorization']
         log.info("-------------开始获取公司事件测试---------")
-
         res = self.event.get_advices_post(algo_domain, Authorization, amount, investorPayId, target, type)
-
         log.info("-------------测试结束---------")
-
         # ******** http协议状态码判断 ********
         print('******** http协议状态码判断... ')
         print("res.status_code: {0}".format(res.status_code))
@@ -57,11 +56,12 @@ class TestAdvices():
         print('******** 实际测试输出... ')
         res_json = res.json()
         if res.status_code == 200:
-            real_data = res_json['data']
+            real_data = res_json['data']['adviceId']
+            # print(real_data)
             error = res_json['errors']
             if real_data:  # 数据非空
                 # print('\n检测点：接口返回data非空,符合预期！')
-                print('\n检测点：接口返回data 符合预期！返回数据为：{0}'.format(real_data))
+                print('\n检测点：创建交易建议，接口返回data 符合预期！adviceId为：{0}'.format(real_data))
                 # 检测返回的数据类型
                 # if isinstance(real_data, dict):
                 #     print('\n检测点：接口返回data type符合预期！返回数据为：{0}'.format(type(real_data)))
@@ -71,14 +71,14 @@ class TestAdvices():
                 #     assert False
                 # event_keys = ['clientNumber', 'riskType', 'prefRegion', 'prefSector', 'status',
                 #               'riskAckStatus']
-
+                with open('D:\\test\\raas_api_0805\module\\advices_patch\\adviceId.txt', "w", encoding="utf-8")as f:
+                    f.write(f"{real_data}\n")
+                    assert True
+                # return real_data
             else:
                 assert False
         else:
             pass
-
-
-
 if __name__ == '__main__':
     # a = TestEvents
     # print('Test data: {0}, Test ids: {1}'.format(a.get_data, a.get_ids))

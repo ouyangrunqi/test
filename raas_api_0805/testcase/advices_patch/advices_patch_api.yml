@@ -1,0 +1,9 @@
+get:
+  "method": "patch"
+  "url": "${algo_domain}/v1/app/advices/{adviceId}"
+  "headers":
+    "Content-Type": "application/json; charset=UTF-8"
+    "Authorization": ${Authorization}
+    "Host": "raas-dev.aqumon.com"
+    "X-Api-Pid": "101"
+

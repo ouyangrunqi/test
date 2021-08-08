@@ -1,12 +1,13 @@
 import os
 import allure
 import pytest
-from api.advice_predicting import Predicting
+from api.advices_patch import AdvicesPatch
+from module.advices_post.test_advices_post import TestAdvicesPost
 from common.get_log import log
 from conftest import headers_gl
 
 
-class TestPredicting():
+class TestAdvicesPatch():
     """
     用户查询测试类
     1.参数化存放在特定的yml文件中，用三级目录管理用例、参数数据和ids的数据
@@ -15,10 +16,11 @@ class TestPredicting():
     """
 
     # 新建公司事件类实例
-    event = Predicting()
+    event = AdvicesPatch()
+    event_1 = TestAdvicesPost()
 
     # 获取参数化的数据
-    para_data = event.load_yaml('testcase/advice_predicting/para_advice_predicting.yml')
+    para_data = event.load_yaml('testcase/advices_patch/para_advices_patch.yml')
 
     # 获取不同用例需要的参数化数据以及ids标题数据
     # add_data = para_data["add"]["data"]
@@ -27,21 +29,21 @@ class TestPredicting():
     get_data = para_data["get"]["data"]
     get_ids = para_data["get"]["ids"]
 
-    #
+
     # delete_data = para_data["delete"]["data"]
     # delete_ids = para_data["delete"]["ids"]
     #
     # edit_data = para_data["edit"]["data"]
     # edit_ids = para_data["edit"]["ids"]
-
-    @pytest.mark.parametrize("Authorization, status, expect_http_code, type, amount, target", get_data, ids=get_ids)
+    @pytest.mark.parametrize("Authorization, status, expect_http_code, adviceId", get_data, ids=get_ids)
     @allure.severity(allure.severity_level.CRITICAL)
-    def test_advice_predicting(self, env, Authorization, status, expect_http_code, type, amount, target):
+    def test_advices_patch(self, env, Authorization, status, expect_http_code, adviceId):
         algo_domain = env['host']['algo_users']
         # Authorization = headers_gl['get']['headers']['Authorization']
         log.info("-------------开始获取公司事件测试---------")
 
-        res = self.event.get_advice_predicting(algo_domain, Authorization, type, amount, target)
+        res = self.event.get_advices_patch(algo_domain, Authorization, adviceId)
+
         log.info("-------------测试结束---------")
 
         # ******** http协议状态码判断 ********
@@ -61,7 +63,7 @@ class TestPredicting():
             error = res_json['errors']
             if real_data:  # 数据非空
                 # print('\n检测点：接口返回data非空,符合预期！')
-                print('\n检测点：接口返回data 符合预期！返回数据为：{0}'.format(real_data))
+                print('\n检测点：创建交易建议，接口返回data 符合预期！adviceId为：{0}'.format(real_data))
                 # 检测返回的数据类型
                 # if isinstance(real_data, dict):
                 #     print('\n检测点：接口返回data type符合预期！返回数据为：{0}'.format(type(real_data)))
@@ -71,31 +73,8 @@ class TestPredicting():
                 #     assert False
                 # event_keys = ['clientNumber', 'riskType', 'prefRegion', 'prefSector', 'status',
                 #               'riskAckStatus']
-                orders_data = res_json['data']['orders']
-                # print(orders_data)
-                iii = []
-                for i in orders_data:
-                    ii = i['weight']
-                    # print(ii)
-                    iii.append(ii)
-                weight_total = sum(iii)
-                if weight_total == 1:
-                    print("\n检测点：申购试算，接口返回weight和等于1 符合预期！")
-                    assert True
-                else:
-                    print("\n检测点：与预期不符！weight和为：",weight_total)
-                    print("\n试算返回的各基金weight：", iii)
-                    assert False
                 return real_data
-            elif error[0]['code'] == 100002:
-                assert True
-            elif error[0]['code'] == 300008:
-                msg = error[0]['message']
-                error_code = error[0]['code']
-                print("\n检测点：起投金额检测")
-                print(str(error_code),msg)
-                # print(real_data)
-                assert True
+
             else:
                 assert False
         else:
@@ -106,6 +85,6 @@ class TestPredicting():
 if __name__ == '__main__':
     # a = TestEvents
     # print('Test data: {0}, Test ids: {1}'.format(a.get_data, a.get_ids))
-    pytest.main(['-v', 'test_advices_post.py'])
+    pytest.main(['-v', 'test_advices_patch.py'])
     # pytest.main(['-v', '--alluredir', '../report/result', 'test_algo_stock_info.py'])
     # os.system('allure generate ../report/result -o ../report/html --clean')

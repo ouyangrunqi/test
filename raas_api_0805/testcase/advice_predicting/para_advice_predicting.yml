@@ -1,4 +1,4 @@
-# 查询用户事件，参数有token, status, expect_http_code, type, amount, target
+# 申购试算，参数有token, status, expect_http_code, type, amount, target
 get:
   ids:
     - 申购：10万
