@@ -71,7 +71,7 @@ class TestAdvicesPost():
                 #     assert False
                 # event_keys = ['clientNumber', 'riskType', 'prefRegion', 'prefSector', 'status',
                 #               'riskAckStatus']
-                with open('D:\\test\\raas_api_0805\module\\advices_patch\\adviceId.txt', "w", encoding="utf-8")as f:
+                with open('E:\\test\\raas_api_0805\module\\advices_patch\\adviceId.txt', "w", encoding="utf-8")as f:
                     f.write(f"{real_data}\n")
                     assert True
                 # return real_data
